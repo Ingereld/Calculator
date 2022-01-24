@@ -1,25 +1,34 @@
-function calc(operand, num1, num2){
- let result;
- const isNotValid = (typeof num1 !== 'number' || typeof num2 !== 'number' || isNaN(num1) || isNaN(num2));
-if (isNotValid) {
-  result = 'Error'
-  } else if (operand === 'sum') {
-    result = num1 + num2;
-  } else if (operand === 'sub'){
-    result = num1 - num2;
-  } else if (operand === 'multipl'){
-    result = num1 * num2;
-  }  else if (operand === 'div'){
-    if ( num2 === 0 )  {
-    result = 'Unknown operation'
-    } else {
-      result = num1 / num2;
-    } 
-  } else {
-    result = 'Unknown operation'
+function calc(operand, num1, num2)  {
+
+  const isNotValid = ( typeof num1 != 'number' || typeof num2 != 'number' || isNaN(num1) || isNaN(num2));
+
+  if (isNotValid) {
+    return 'error'
   }
-  return result;
-}
+    switch (operand) {
+      case 'sum':
+        return num1 + num2;
+      break;
+      
+      case 'sub':
+        return num1 - num2;
+      break;
 
+      case 'multipl':
+        return num1 * num2;
+      break;
 
-console.log(calc('div', 2, 2))
+      case 'div': 
+        if ( num2 === 0) {
+          return 'Error! Division by zero is not possible'
+        } else {
+          return num1 / num2;
+        }
+      break;
+
+      default:
+        return 'Unknown operation';
+    }
+  }
+
+console.log(calc('div'));
